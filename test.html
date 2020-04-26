@@ -185,11 +185,20 @@
         newitem.find("td:eq(1)").text(value);
         newitem.find("td:eq(2)").text('');
         newitem.find("td:eq(3)").text('');
-        newitem.find("td:eq(4)").html('<button>삭제</button>');
+        newitem.find("td:eq(4)").html('<button onclick="fnMinItem(this);return false;">삭제</button>');
         newitem.addClass("item"+ itemNo);
 
         $("#list").append(newitem);
         $("#no").val("item"+ itemNo);
+    }
+
+    function fnMinItem(obj){
+        var item = $(obj).parent().parent();
+        var value = parseInt(item.find("td:eq(3)").text().replace(",",""));
+        item.remove();
+
+        $("#sum").val(parseInt($("#sum").val()) - value);
+        $("#listsum").find("td:eq(3)").text(numberWithCommas($("#sum").val()));
     }
 
     function numberWithCommas(x) {
