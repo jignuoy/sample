@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
       .item {
-        width: 300px;
+        width: 250px;
         background-color: aqua;
       }
 
@@ -22,7 +22,7 @@
       }
 
       .num {
-        width: 300px;
+        width: 250px;
         background-color: aqua;
       }
 
@@ -48,12 +48,12 @@
       }
 
       .list {
-        width: 100%;
+        width: 550px;
       }
 
       .list tr > td {
         width: 20%;
-        height: 50px;
+        height: 30px;
         text-align: center;
         border: 1px solid black;
         font-weight: bold;
@@ -115,6 +115,7 @@
                 <td>단가</td>
                 <td>개수</td>
                 <td>금액</td>
+                <td></td>
             </tr>
         </table>
         <table id="listsum" class="list">
@@ -122,6 +123,7 @@
                 <td>총계</td>
                 <td>-</td>
                 <td>-</td>
+                <td></td>
                 <td></td>
             </tr>
         </table>
@@ -149,8 +151,8 @@
             alert("종류 입력");
             return;
         }
-        
-        var tnum = $("#cnt").val() +""+ num;
+
+        var tnum = parseInt($("#cnt").val() +""+ num);
         $("#cnt").val(tnum);
 
         var newitem = $("." + $("#no").val());
@@ -186,6 +188,7 @@
         newitem.find("td:eq(1)").text(value);
         newitem.find("td:eq(2)").text('');
         newitem.find("td:eq(3)").text('');
+        newitem.find("td:eq(4)").html('<button>삭제</button>');
         newitem.addClass("item"+ itemNo);
 
         $("#list").append(newitem);
