@@ -62,6 +62,22 @@
         font-weight: bold;
         font-size: 18px;
       }
+
+      .itemrow > td:nth-child(1) {
+        text-align: left;
+      }
+
+      .itemrow > td:nth-child(2) {
+        text-align: right;
+      }
+
+      .itemrow > td:nth-child(3) {
+        text-align: right;
+      }
+      
+      .itemrow > td:nth-child(4) {
+        text-align: right;
+      }
   </style>
 </head>
 <body>
@@ -221,7 +237,7 @@
         newitem.find("td:eq(2)").text('');
         newitem.find("td:eq(3)").text('');
         newitem.find("td:eq(4)").html('<button onclick="fnMinItem(this);return false;">삭제</button>');
-        newitem.addClass("item"+ itemNo);
+        newitem.addClass("itemrow item"+ itemNo);
 
         $("#list").append(newitem);
         $("#no").val("item"+ itemNo);
