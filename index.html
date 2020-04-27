@@ -187,7 +187,7 @@
         }else{
             uval = $("#val1").val();
         }
-        fnNewItem(1, uval);
+        fnNewItem(1, numberWithCommas(uval));
 
         //개수
         var text = $("#cnt").val() + " " + $("#ty").val();
@@ -199,7 +199,7 @@
 
     function fnSum(uval){
         var total = uval * $("#cnt").val();
-        fnNewItem(3, total);
+        fnNewItem(3, numberWithCommas(total));
 
         $("#sum").val(parseInt($("#sum").val()) + total);
         $("#listsum").find("td:eq(3)").text(numberWithCommas($("#sum").val()));
