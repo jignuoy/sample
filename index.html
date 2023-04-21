@@ -14,7 +14,7 @@
       }
 
       .item tr > td {
-        width: 20%;
+        /*width: 20%;*/
         height: 40px;
         text-align: center;
         border: 1px solid red;
@@ -85,6 +85,11 @@
       .itemrow > td:nth-child(4) {
         text-align: right;
       }
+
+	input {
+	  text-align: right;
+        width: 100%;
+	}
   </style>
 </head>
 <body>
@@ -93,26 +98,6 @@
 
             <div class="form-group">
             <table class="item">
-                <!--
-                <tr>
-                    <td colspan="5" onclick="fnItem('고추(300원)', 300, 0);return false;" style="text-align: left;padding-left: 5px;">고추(300원)-큰열/꽈리</td>
-                </tr>
-                <tr>
-                    <td colspan="5" onclick="fnItem('고추(400원)', 400, 0);return false;" style="text-align: left;padding-left: 5px;">고추(400원)-진심칼탄/안심칼탄/칼라이엑스</td>
-                </tr>
-                <tr>
-                    <td colspan="5" onclick="fnItem('고추(500원)', 500, 0);return false;" style="text-align: left;padding-left: 5px;">고추(500원)-칼탄패스/티탄스피드/칼라스피드업/칼라큰신홍/PR큰열</td>
-                </tr>
-                <tr>
-                    <td colspan="5" onclick="fnItem('고추(600원)', 600, 0);return false;" style="text-align: left;padding-left: 5px;">고추(600원)-길상/스위티풋/롱그린/엄지아삭이</td>
-                </tr>
-                <tr>
-                    <td colspan="5" onclick="fnItem('고추(700원)', 700, 0);return false;" style="text-align: left;padding-left: 5px;">고추(700원)-미인풋</td>
-                </tr>
-                <tr>
-                    <td colspan="5" onclick="fnItem('고추(1500원)', 1500, 0);return false;" style="text-align: left;padding-left: 5px;">고추(1500원)-당조/보라</td>
-                </tr>
-                -->
                 <tr>
                     <td onclick="fnItem('고추(300원)', 300, 0);return false;">고추(300원)</td>
                     <td onclick="fnItem('고추(400원)', 400, 0);return false;">고추(400원)</td>
@@ -122,44 +107,43 @@
                     <td onclick="fnItem('고추(1500원)', 1500, 0);return false;">고추(1500원)</td>
                 </tr>
                 <tr>
-                    <td onclick="fnItem('피망', 600, 0);return false;">피망</td>
-                    <td onclick="fnItem('방울토마토', 400, 0);return false;">방울토마토</td>
+			  <td onclick="fnItem('토마토', 500, 0);return false;">토마토</td>
+			  <td onclick="fnItem('방울토마토', 400, 0);return false;">방울토마토</td>
                     <td onclick="fnItem('대추토마토', 800, 0);return false;">대추토마토</td>
-                    <td onclick="fnItem('토마토', 500, 0);return false;">토마토</td>
-                    <td onclick="fnItem('복수박', 1000, 0);return false;">복수박</td>
                     <td onclick="fnItem('수박', 500, 0);return false;">수박</td>
+                    <td onclick="fnItem('복수박', 1000, 0);return false;">복수박</td>
+			  <td onclick="fnItem('참외', 500, 0);return false;">참외</td>
                 </tr>
                 <tr>
-                    <td onclick="fnItem('참외', 500, 0);return false;">참외</td>
-                    <td onclick="fnItem('강낭콩', 200, 0);return false;">강낭콩</td>
+                    <td onclick="fnItem('피망', 600, 0);return false;">피망</td>
                     <td onclick="fnItem('땅콩', 250, 0);return false;">땅콩</td>
+                    <td onclick="fnItem('강낭콩', 200, 0);return false;">강낭콩</td>                    
                     <td onclick="fnItem('완두콩', 250, 0);return false;">완두콩</td>
                     <td onclick="fnItem('작두콩', 1500, 0);return false;">작두콩</td>
                     <td onclick="fnItem('옥수수', 200, 0);return false;">옥수수</td>
                 </tr>
                 <tr>
-                    <td onclick="fnItem('감자', 500, 0);return false;">감자</td>
                     <td onclick="fnItem('애호박', 500, 0);return false;">애호박</td>
                     <td onclick="fnItem('풋호박', 500, 0);return false;">풋호박</td>
                     <td onclick="fnItem('쥬키니', 500, 0);return false;">쥬키니</td>
                     <td onclick="fnItem('엣돌호박', 600, 0);return false;">엣돌호박</td>
                     <td onclick="fnItem('단호박', 500, 0);return false;">단호박</td>
+			  <td onclick="fnItem('감자', 500, 0);return false;">감자</td>
                 </tr>
                 <tr>
-                    <td onclick="fnItem('오이(1)', 300, 0);return false;">오이(1)</td>
-                    <td onclick="fnItem('오이(2)', 400, 0);return false;">오이(2)</td>
+                    <td onclick="fnItem('오이', 300, 0);return false;">오이</td>
                     <td onclick="fnItem('노각오이', 500, 0);return false;">노각오이</td>
                     <td onclick="fnItem('가지', 300, 0);return false;">가지</td>
                     <td onclick="fnItem('여주', 1000, 0);return false;">여주</td>
                     <td onclick="fnItem('아스파라거스', 1000, 0);return false;">아스파라거스</td>
+                    <td onclick="fnItem('부추', 500, 0);return false;">부추</td>
                 </tr>
                 <tr>      
                     <td onclick="fnItem('상추', 200, 0);return false;">상추</td>
                     <td onclick="fnItem('쑥갓', 200, 0);return false;">쑥갓</td>
-                    <td onclick="fnItem('양배추', 200, 0);return false;">양배추</td>
-                    <td onclick="fnItem('적양배추', 300, 0);return false;">적양배추</td>
                     <td onclick="fnItem('배추', 200, 0);return false;">배추</td>
-                    <td onclick="fnItem('부추', 500, 0);return false;">부추</td>
+                    <td onclick="fnItem('양배추', 200, 0);return false;">양배추</td>
+                    <td onclick="fnItem('적양배추', 300, 0);return false;">적양배추</td>                                        
                 </tr>
                 <tr>                    
                     <td onclick="fnItem('대파(1판)', 8000, 0);return false;">대파(1판)</td>
@@ -279,7 +263,7 @@
         fnNewItem(1, numberWithCommas(uval));
 
         //개수
-        var text = $("#cnt").val() + " " + $("#ty").val();
+        var text = $("#cnt").val();
         fnNewItem(2, text);
 
         //금액
@@ -289,16 +273,19 @@
     function fnSum(uval){
         var total = uval * $("#cnt").val();
         fnNewItem(3, numberWithCommas(total));
-
-        $("#sum").val(parseInt($("#sum").val()) + total);
-        $("#listsum").find("td:eq(3)").text(numberWithCommas($("#sum").val()));
-
+        fnTotalSum();
         reset();
     }
 
     function fnNewItem(num, val){
         var newitem = $("." + $("#no").val());
-        newitem.find("td:eq("+ num +")").text(val);
+
+	  if(num == "3"){
+		newitem.find("td:eq("+ num +")").text(val);
+	  } else {
+		newitem.find("td:eq("+ num +") input").val(val);
+	  }
+        
     }
 
     function fnAddItem(name){
@@ -306,27 +293,40 @@
         var itemNo = (parseInt(lastItemNo)+1);
         var newitem = $("#list tr:eq(0)").clone();
         newitem.find("td:eq(0)").text(name);
-        newitem.find("td:eq(1)").text('');
-        newitem.find("td:eq(2)").text('');
+        newitem.find("td:eq(1)").html('<input type="number">');
+        newitem.find("td:eq(2)").html('<input type="number">');
         newitem.find("td:eq(3)").text('');
+        newitem.find("td:eq(3)").addClass("sum");
         newitem.find("td:eq(4)").html('<button onclick="fnMinItem(this);return false;">삭제</button>');
         newitem.addClass("itemrow item"+ itemNo);
 
         $("#list").append(newitem);
         $("#no").val("item"+ itemNo);
+
+	  newitem.find("input").change(function(){
+		var total = newitem.find("td:eq(1) input").val() * newitem.find("td:eq(2) input").val();
+            newitem.find("td:eq(3)").text(numberWithCommas(total));
+	      fnTotalSum();
+        });
     }
 
     function fnMinItem(obj){
         var item = $(obj).parent().parent();
-        var value = parseInt(item.find("td:eq(3)").text().replace(",",""));
         item.remove();
-
-        $("#sum").val(parseInt($("#sum").val()) - value);
-        $("#listsum").find("td:eq(3)").text(numberWithCommas($("#sum").val()));
+	  fnTotalSum();
     }
 
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function fnTotalSum(){
+       var sum = 0;
+       $("#list .sum").each(function(index, item){
+          sum += parseInt($(item).text().replace(",",""));
+       });
+
+       $("#listsum").find("td:eq(3)").text(numberWithCommas(sum));
     }
 </script>
 </body>
