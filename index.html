@@ -293,8 +293,8 @@
         var itemNo = (parseInt(lastItemNo)+1);
         var newitem = $("#list tr:eq(0)").clone();
         newitem.find("td:eq(0)").text(name);
-        newitem.find("td:eq(1)").html('<input type="number">');
-        newitem.find("td:eq(2)").html('<input type="number">');
+        newitem.find("td:eq(1)").html('<input type="number" pattern="\d*">');
+        newitem.find("td:eq(2)").html('<input type="number" pattern="\d*">');
         newitem.find("td:eq(3)").text('');
         newitem.find("td:eq(3)").addClass("sum");
         newitem.find("td:eq(4)").html('<button onclick="fnMinItem(this);return false;">삭제</button>');
