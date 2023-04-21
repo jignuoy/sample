@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>단가 계산기</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      .item {
+        width: 100%;
+        background-color: aqua;
+      }
+
+      .item tr > td {
+        height: 40px;
+        text-align: center;
+        border: 1px solid #eee;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .item tr > td:active {
+        background-color: #60a1ef;
+      }
+
+      .num {
+        width: 100%;
+        background-color: #6fdd58;
+      }
+
+      .num tr > td {
+        width: 20%;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #555;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .num tr > td:active {
+        background-color: #60a1ef;
+      }
+
+      .enter {
+        width: 100%;
+        background-color: #f72261;
+      }
+
+      .enter tr > td {
+        width: 20%;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #555;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .enter tr > td:active {
+        background-color: #60a1ef;
+      }
+
+      .list {
+        width: 100%;
+      }
+
+      .list tr > td {
+        width: 20%;
+        height: 30px;
+        border: 1px solid black;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      
+      .itemrow > td:nth-child(4) {
+        text-align: right;
+      }
+
+	.itemrow {
+        background: #fff;
+	}
+
+	input {
+	  text-align: right;
+        width: 100%;
+	}
+      
+      #list {
+        background: #eee;
+      }
+  </style>
+</head>
+<body>
+
+<div class="container" style="padding: 5px;">
+
+            <div class="form-group">
+            <table class="item">
+                <tr>
+                    <td onclick="fnItem('고추(300원)', 300, 0);return false;">고추(300원)</td>
+                    <td onclick="fnItem('고추(400원)', 400, 0);return false;">고추(400원)</td>
+                    <td onclick="fnItem('고추(500원)', 500, 0);return false;">고추(500원)</td>
+                    <td onclick="fnItem('고추(600원)', 600, 0);return false;">고추(600원)</td>
+                    <td onclick="fnItem('고추(700원)', 700, 0);return false;">고추(700원)</td>
+                    <td onclick="fnItem('고추(1500원)', 1500, 0);return false;">고추(1500원)</td>
+                </tr>
+                <tr>
+			  <td onclick="fnItem('토마토', 500, 0);return false;">토마토</td>
+			  <td onclick="fnItem('방울토마토', 400, 0);return false;">방울토마토</td>
+                    <td onclick="fnItem('대추토마토', 800, 0);return false;">대추토마토</td>
+                    <td onclick="fnItem('수박', 500, 0);return false;">수박</td>
+                    <td onclick="fnItem('복수박', 1000, 0);return false;">복수박</td>
+			  <td onclick="fnItem('참외', 500, 0);return false;">참외</td>
+                </tr>
+                <tr>
+                    <td onclick="fnItem('피망', 600, 0);return false;">피망</td>
+                    <td onclick="fnItem('땅콩', 250, 0);return false;">땅콩</td>
+                    <td onclick="fnItem('강낭콩', 200, 0);return false;">강낭콩</td>                    
+                    <td onclick="fnItem('완두콩', 250, 0);return false;">완두콩</td>
+                    <td onclick="fnItem('작두콩', 1500, 0);return false;">작두콩</td>
+                    <td onclick="fnItem('옥수수', 200, 0);return false;">옥수수</td>
+                </tr>
+                <tr>
+                    <td onclick="fnItem('애호박', 500, 0);return false;">애호박</td>
+                    <td onclick="fnItem('풋호박', 500, 0);return false;">풋호박</td>
+                    <td onclick="fnItem('쥬키니', 500, 0);return false;">쥬키니</td>
+                    <td onclick="fnItem('엣돌호박', 600, 0);return false;">엣돌호박</td>
+                    <td onclick="fnItem('단호박', 500, 0);return false;">단호박</td>
+			  <td onclick="fnItem('감자', 500, 0);return false;">감자</td>
+                </tr>
+                <tr>
+                    <td onclick="fnItem('오이', 300, 0);return false;">오이</td>
+                    <td onclick="fnItem('노각오이', 500, 0);return false;">노각오이</td>
+                    <td onclick="fnItem('가지', 300, 0);return false;">가지</td>
+                    <td onclick="fnItem('여주', 1000, 0);return false;">여주</td>
+                    <td onclick="fnItem('아스파라거스', 1000, 0);return false;">아스파라거스</td>
+                    <td onclick="fnItem('부추', 500, 0);return false;">부추</td>
+                </tr>
+                <tr>      
+                    <td onclick="fnItem('상추', 200, 0);return false;">상추</td>
+                    <td onclick="fnItem('쑥갓', 200, 0);return false;">쑥갓</td>
+                    <td onclick="fnItem('배추', 200, 0);return false;">배추</td>
+                    <td onclick="fnItem('양배추', 200, 0);return false;">양배추</td>
+                    <td onclick="fnItem('적양배추', 300, 0);return false;">적양배추</td>                                        
+                </tr>
+                <tr>                    
+                    <td onclick="fnItem('대파(1판)', 8000, 0);return false;">대파(1판)</td>
+                    <td onclick="fnItem('양파(1판)', 10000, 0);return false;">양파(1판)</td>
+                    <td onclick="fnItem('도라지(1판)', 15000, 0);return false;">도라지(1판)</td>
+                    <td onclick="fnItem('더덕(1판)', 15000, 0);return false;">더덕(1판)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+    <div class="form-group">
+        <table id="list" class="list">
+            <tr class="item0">
+                <td class="text-center">종류</td>
+                <td class="text-center">단가</td>
+                <td class="text-center">개수</td>
+                <td class="text-center">금액</td>
+                <td class="text-center"></td>
+            </tr>
+        </table>
+        <table id="listsum" class="list">
+            <tr>
+                <td class="text-center">총계</td>
+                <td class="text-center">-</td>
+                <td class="text-center">-</td>
+                <td class="text-danger text-right">0</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <input type="hidden" id="val1">
+    <input type="hidden" id="val2">
+    <input type="hidden" id="cnt">
+    <input type="hidden" id="ty">
+    <input type="hidden" id="no">
+    <input type="hidden" id="sum" value="0">
+</div>
+<script>
+    function reset(){
+        $("#val1").val('');
+        $("#val2").val('');
+        $("#cnt").val('');
+        $("#ty").val('');
+        $("#no").val('');
+    }
+
+    function fnItem(name, val1, val2){
+        fnAddItem(name);
+
+	  var price = val1;
+        var total = price * 1;
+        fnNewItem(1, numberWithCommas(price));
+        fnNewItem(2, "1");        
+        fnNewItem(3, numberWithCommas(total));
+        fnTotalSum();
+        reset();
+    }
+
+    function fnNewItem(num, val){
+        var newitem = $("." + $("#no").val());
+
+	  if(num == "3"){
+		newitem.find("td:eq("+ num +")").text(val);
+	  } else {
+		newitem.find("td:eq("+ num +") input").val(val);
+	  }
+        
+    }
+
+    function fnAddItem(name){
+        var lastItemNo = $("#list tr").length;
+        var itemNo = (parseInt(lastItemNo)+1);
+        var newitem = $("#list tr:eq(0)").clone();
+        newitem.find("td:eq(0)").text(name);
+        newitem.find("td:eq(1)").html('<input type="number">');
+        newitem.find("td:eq(2)").html('<input type="number">');
+        newitem.find("td:eq(3)").text('');
+        newitem.find("td:eq(3)").addClass("sum");
+        newitem.find("td:eq(4)").html('<button onclick="fnMinItem(this);return false;">삭제</button>');
+        newitem.addClass("itemrow item"+ itemNo);
+
+        $("#list").append(newitem);
+        $("#no").val("item"+ itemNo);
+
+	  newitem.find("input").change(function(){
+		var total = newitem.find("td:eq(1) input").val() * newitem.find("td:eq(2) input").val();
+            newitem.find("td:eq(3)").text(numberWithCommas(total));
+	      fnTotalSum();
+        });
+    }
+
+    function fnMinItem(obj){
+        var item = $(obj).parent().parent();
+        item.remove();
+	  fnTotalSum();
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function fnTotalSum(){
+       var sum = 0;
+       $("#list .sum").each(function(index, item){
+          sum += parseInt($(item).text().replace(",",""));
+       });
+
+       $("#listsum").find("td:eq(3)").text(numberWithCommas(sum));
+    }
+</script>
+</body>
+</html>
