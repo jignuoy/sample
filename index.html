@@ -144,7 +144,7 @@
                     <td onclick="fnItem('비트', 300, 0);return false;">비트</td> 
                     <td onclick="fnItem('토란', 1000, 0);return false;">토란</td>
                     <td onclick="fnItem('생강', 2000, 0);return false;">생강</td>
-                     <td></td>
+                    <td onclick="fnItem('', 0, 0);return false;">기타</td>
                 </tr>                
                 <tr>                    
                     <td onclick="fnItem('대파(1판)', 8000, 0);return false;">대파(1판)</td>
@@ -293,7 +293,7 @@
         var lastItemNo = $("#list tr").length;
         var itemNo = (parseInt(lastItemNo)+1);
         var newitem = $("#list tr:eq(0)").clone();
-        newitem.find("td:eq(0)").text(name);
+        newitem.find("td:eq(0)").html('<input type="text" value="+name+">');
         newitem.find("td:eq(1)").html('<input type="number" pattern="\d*">');
         newitem.find("td:eq(2)").html('<input type="number" pattern="\d*">');
         newitem.find("td:eq(3)").text('');
