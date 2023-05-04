@@ -229,7 +229,7 @@
         $("#val1").val(val1);
         $("#val2").val(val2);
 
-        fnAddItem(name);
+        fnAddItem(name, val1, val2);
     }
 
     function fnNum(num){
@@ -289,12 +289,12 @@
         
     }
 
-    function fnAddItem(name){
+    function fnAddItem(name, val1, val2){
         var lastItemNo = $("#list tr").length;
         var itemNo = (parseInt(lastItemNo)+1);
         var newitem = $("#list tr:eq(0)").clone();
         newitem.find("td:eq(0)").html('<input type="text" value="'+name+'">');
-        newitem.find("td:eq(1)").html('<input type="number" pattern="\d*">');
+        newitem.find("td:eq(1)").html('<input type="number" value="'+ val1 +'" pattern="\d*">');
         newitem.find("td:eq(2)").html('<input type="number" pattern="\d*">');
         newitem.find("td:eq(3)").text('');
         newitem.find("td:eq(3)").addClass("sum");
