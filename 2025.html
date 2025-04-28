@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>	
   <style>
       .item {
         width: 100%;
@@ -182,7 +183,7 @@
                 </tr>
                 </table>
             </div>
-    <div class="form-group">
+    <div class="form-group" id="capture_img">
         <table id="list" class="list">
             <tr class="item0">
                 <td class="text-center">종류</td>
@@ -202,6 +203,8 @@
             </tr>
         </table>
     </div>
+    <button type="button" onclick="javascript:capture();">저장</button>
+	<img id="capture_img" src="" alt="screenshot">
     <input type="hidden" id="val1">
     <input type="hidden" id="val2">
     <input type="hidden" id="cnt">
@@ -322,6 +325,23 @@
 
        $("#listsum").find("td:eq(3)").text(numberWithCommas(sum));
     }
+
+    var captureImgData;
+    function capture() {
+	var captureImg = document.getElementById("capture_img");
+	
+	html2canvas(document.getElementById('capture_area')).then(function(canvas) {
+		captureImgData = canvas.toDataURL('image/png');
+		captureImg.src = captureImgData;
+	});
+    }	 
+    function captureImgSave() {
+	// 이미지 다운로드 링크 생성
+	var downloadLink = document.createElement('a');
+	downloadLink.href = captureImgData;
+	downloadLink.download = 'screenshot.png';
+	downloadLink.click();
+}	
 </script>
 </body>
 </html>
