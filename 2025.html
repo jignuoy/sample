@@ -203,8 +203,7 @@
             </tr>
         </table>
     </div>
-    <button type="button" onclick="javascript:capture();">저장</button>
-	<img id="capture_img" src="" alt="screenshot">
+    <button type="button" class="btn btn-secondary" onclick="javascript:capture();">저장</button>
     <input type="hidden" id="val1">
     <input type="hidden" id="val2">
     <input type="hidden" id="cnt">
@@ -327,7 +326,6 @@
     }
 
     function capture() {
-	var captureImg = document.getElementById("capture_img");	
 	html2canvas(document.getElementById('capture_area')).then(function(canvas) {
 	   var el = document.createElement("a")
             el.href = canvas.toDataURL("image/jpeg");
