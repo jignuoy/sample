@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>단가 계산기</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>	
+  <style>
+      .item {
+        width: 100%;
+        background-color: aqua;
+      }
+
+      .item tr > td {
+        /*width: 20%;*/
+        height: 40px;
+        text-align: center;
+        border: 1px solid black;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .item tr > td:active {
+        background-color: #60a1ef;
+      }
+
+      .num {
+        width: 100%;
+        background-color: #6fdd58;
+      }
+
+      .num tr > td {
+        width: 20%;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #555;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .num tr > td:active {
+        background-color: #60a1ef;
+      }
+
+      .enter {
+        width: 100%;
+        background-color: #f72261;
+      }
+
+      .enter tr > td {
+        width: 20%;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #555;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .enter tr > td:active {
+        background-color: #60a1ef;
+      }
+
+      .list {
+        width: 100%;
+      }
+
+      .list tr > td {
+        width: 20%;
+        height: 30px;
+        border: 1px solid black;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .itemrow > td:nth-child(2) {
+        text-align: right;
+      }
+
+      .itemrow > td:nth-child(3) {
+        text-align: right;
+      }
+      
+      .itemrow > td:nth-child(4) {
+        text-align: right;
+      }
+
+	input {
+	  text-align: right;
+        width: 100%;
+	}
+  </style>
+</head>
+<body>
+
+<div class="container" style="padding: 5px;">
+
+            <div class="form-group">
+            <table class="item">
+                <tr>
+                    <td onclick="fnItem('고추(400원)', 400, 0);return false;">고추(400원)</td>
+                    <td onclick="fnItem('고추(500원)', 500, 0);return false;">고추(500원)</td>
+                    <td onclick="fnItem('고추(600원)', 600, 0);return false;">고추(600원)</td>
+                    <td onclick="fnItem('고추(1000원)', 1000, 0);return false;">고추(1000원)</td>
+                    <td onclick="fnItem('고추(1500원)', 1500, 0);return false;">고추(1500원)</td>
+		    <td onclick="fnItem('청양(600원)', 600, 0);return false;">청양(600원)</td>
+                </tr>
+                <tr>
+	            <td onclick="fnItem('도태랑토마토', 700, 0);return false;">도태랑토마토</td>		    	
+                    <td onclick="fnItem('대추토마토', 1000, 0);return false;">대추토마토</td>
+                    <td onclick="fnItem('왕수박', 700, 0);return false;">왕수박</td>
+                    <td onclick="fnItem('복수박', 1000, 0);return false;">복수박</td>
+	            <td onclick="fnItem('애플수박', 1500, 0);return false;">애플수박</td>
+	            <td onclick="fnItem('토란', 1000, 0);return false;">토란</td>
+                </tr>
+		<tr>
+                    
+                    <td onclick="fnItem('꿀참외', 700, 0);return false;">꿀참외</td>
+                    <td onclick="fnItem('애플참외', 1500, 0);return false;">애플참외</td>                    
+                    <td onclick="fnItem('오이', 500, 0);return false;">오이5</td>
+	            <td onclick="fnItem('노각', 600, 0);return false;">노각6</td>
+	            <td onclick="fnItem('호박', 600, 0);return false;">호박6</td>
+		    <td onclick="fnItem('여주', 1500, 0);return false;">여주</td>
+                </tr>  
+		<tr>      
+		    <td onclick="fnItem('상추', 200, 0);return false;">상추</td>
+                    <td onclick="fnItem('쑥갓', 200, 0);return false;">쑥갓</td>		    	
+                    <td onclick="fnItem('야콘', 1000, 0);return false;">야콘</td>                    
+                    <td onclick="fnItem('당귀', 1000, 0);return false;">당귀</td>
+		    <td onclick="fnItem('피망', 1000, 0);return false;">피망</td>
+		    <td onclick="fnItem('파프리카', 1500, 0);return false;">파프리카</td>
+                </tr>    
+                <tr>
+		    <td onclick="fnItem('옥수수', 200, 0);return false;">옥수수</td>	
+                    <td onclick="fnItem('땅콩', 300, 0);return false;">땅콩</td>
+                    <td onclick="fnItem('감자', 500, 0);return false;">감자</td>                    
+                    <td onclick="fnItem('가지', 500, 0);return false;">가지</td>
+                    <td onclick="fnItem('부추', 500, 0);return false;">부추</td> 
+		    <td onclick="fnItem('들깨', 200, 0);return false;">들깨</td>
+                </tr>                              
+                <tr>                    
+		    <td onclick="fnItem('대파(1판)', 9000, 0);return false;">대파(1판)</td>
+	            <td onclick="fnItem('양파(1판)', 10000, 0);return false;">양파(1판)</td>		
+                    <td onclick="fnItem('땅콩(1판)', 15000, 0);return false;">땅콩(1판)</td>
+                    <td onclick="fnItem('부추(1판)', 15000, 0);return false;">부추(1판)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+            <div class="form-group">
+                <table class="num">
+                    <tr>
+                        <td onclick="fnNum('1');return false;">1</td>
+                        <td onclick="fnNum('2');return false;">2</td>
+                        <td onclick="fnNum('3');return false;">3</td>
+                        <td onclick="fnNum('4');return false;">4</td>
+                        <td onclick="fnNum('5');return false;">5</td>
+                    </tr>
+                    <tr>
+                        <td onclick="fnNum('6');return false;">6</td>
+                        <td onclick="fnNum('7');return false;">7</td>
+                        <td onclick="fnNum('8');return false;">8</td>
+                        <td onclick="fnNum('9');return false;">9</td>
+                        <td onclick="fnNum('0');return false;">0</td>
+                    </tr>
+                </tr>
+                </table>
+            </div>
+            <div class="form-group">
+                <table class="enter">
+                    <tr>
+                        <!-- <td onclick="fnType('판');return false;">판</td> -->
+                        <td colspan="2" onclick="fnType('개');return false;">추가</td>
+                    </tr>
+                    <!-- 
+                    <tr>
+                        <td colspan="2" onclick="fnEnter('1');return false;">확인</td>
+                    </tr>
+                    -->
+                </tr>
+                </table>
+            </div>
+    <div class="form-group" id="capture_area">
+        <table id="list" class="list">
+            <tr class="item0">
+                <td class="text-center">종류</td>
+                <td class="text-center">단가</td>
+                <td class="text-center">개수</td>
+                <td class="text-center">금액</td>
+                <td class="text-center"></td>
+            </tr>
+        </table>
+        <table id="listsum" class="list">
+            <tr>
+                <td class="text-center">총계</td>
+                <td class="text-center">-</td>
+                <td class="text-center">-</td>
+                <td class="text-danger text-right">0</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="javascript:capture();">저장</button>
+    <input type="hidden" id="val1">
+    <input type="hidden" id="val2">
+    <input type="hidden" id="cnt">
+    <input type="hidden" id="ty">
+    <input type="hidden" id="no">
+    <input type="hidden" id="sum" value="0">
+</div>
+<script>
+    function reset(){
+        $("#val1").val('');
+        $("#val2").val('');
+        $("#cnt").val('');
+        $("#ty").val('');
+        $("#no").val('');
+    }
+
+    function fnItem(name, val1, val2){
+        $("#val1").val(val1);
+        $("#val2").val(val2);
+
+        fnAddItem(name, val1, val2);
+    }
+
+    function fnNum(num){
+        if($("#val1").val() == "" && $("#val2").val() == ""){
+            alert("종류 입력");
+            return;
+        }
+
+        var tnum = parseInt($("#cnt").val() +""+ num);
+        $("#cnt").val(tnum);
+    }
+
+    function fnType(val){
+        if($("#val1").val() == "" && $("#val2").val() == ""){
+            alert("종류 입력");
+            return;
+        }
+        if($("#cnt").val() == ""){
+            alert("개수 입력");
+            return;
+        }
+
+        $("#ty").val(val);
+
+        //단가
+        var uval = 0;
+        if($("#ty").val() == "판"){
+            uval = $("#val2").val();
+        }else{
+            uval = $("#val1").val();
+        }
+        fnNewItem(1, uval);
+
+        //개수
+        var text = $("#cnt").val();
+        fnNewItem(2, text);
+
+        //금액
+        fnSum(uval);
+    }
+
+    function fnSum(uval){
+        var total = uval * $("#cnt").val();
+        fnNewItem(3, numberWithCommas(total));
+        fnTotalSum();
+        reset();
+    }
+
+    function fnNewItem(num, val){
+        var newitem = $("." + $("#no").val());
+
+	  if(num == "3"){
+		newitem.find("td:eq("+ num +")").text(val);
+	  } else {
+		newitem.find("td:eq("+ num +") input").val(val);
+	  }
+        
+    }
+
+    function fnAddItem(name, val1, val2){
+        var lastItemNo = $("#list tr").length;
+        var itemNo = (parseInt(lastItemNo)+1);
+        var newitem = $("#list tr:eq(0)").clone();
+        newitem.find("td:eq(0)").html('<input type="text" value="'+name+'">');
+        newitem.find("td:eq(1)").html('<input type="number" value="'+ val1 +'" pattern="\d*">');
+        newitem.find("td:eq(2)").html('<input type="number" pattern="\d*">');
+        newitem.find("td:eq(3)").text('');
+        newitem.find("td:eq(3)").addClass("sum");
+        newitem.find("td:eq(4)").html('<button onclick="fnMinItem(this);return false;">삭제</button>');
+        newitem.addClass("itemrow item"+ itemNo);
+
+        $("#list").append(newitem);
+        $("#no").val("item"+ itemNo);
+
+	  newitem.find("input").change(function(){
+		var total = newitem.find("td:eq(1) input").val() * newitem.find("td:eq(2) input").val();
+            newitem.find("td:eq(3)").text(numberWithCommas(total));
+	      fnTotalSum();
+        });
+    }
+
+    function fnMinItem(obj){
+        var item = $(obj).parent().parent();
+        item.remove();
+	  fnTotalSum();
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function fnTotalSum(){
+       var sum = 0;
+       $("#list .sum").each(function(index, item){
+          sum += parseInt($(item).text().replace(",",""));
+       });
+
+       $("#listsum").find("td:eq(3)").text(numberWithCommas(sum));
+    }
+
+    function capture() {
+	html2canvas(document.getElementById('capture_area')).then(function(canvas) {
+	   var el = document.createElement("a")
+            el.href = canvas.toDataURL("image/jpeg");
+            el.download = moment().format('yyyymmddhhmmss'); + '.jpg'; //다운로드 할 파일명 설정
+            el.click();
+	});
+    }	 
+</script>
+</body>
+</html>
