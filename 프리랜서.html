@@ -163,12 +163,12 @@
             <span>계약금액</span>
             <span id="total-income"></span>
         </div>
-	    <div class="result-item">
-            <span>필요경비</span>
-            <span id="necessary-expense"></span>
+	<div class="result-item">
+            <span>월보수액(15.7%)</span>
+            <span id="monthly-allowance"></span>
         </div>
         <div class="result-item deduction">
-            <span>소득세 (3.3%)</span>
+            <span>소득세(3.3%)</span>
             <span id="income-tax"></span>
         </div>
         <div class="result-item deduction">
@@ -277,7 +277,7 @@ function calculateIncome() {
         
         // 결과 표시
         document.getElementById('total-income').textContent = formatNumber(monthlyIncome) + '원';
-	document.getElementById('necessary-expense').textContent = formatNumber(necessaryExpense) + '원';
+	document.getElementById('monthly-allowance').textContent = formatNumber(monthlyAllowance) + '원';
         document.getElementById('income-tax').textContent = formatNumber(incomeTax) + '원';
         document.getElementById('employment-insurance').textContent = formatNumber(employmentInsurance) + '원';
         document.getElementById('workers-compensation').textContent = formatNumber(workersCompensation) + '원';
