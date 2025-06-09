@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>프리랜서 실수령액 - 연봉계산기</title>
+<style>
+.freelance-calculator {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0;
+    background: #fff;
+}
+
+.input-wrapper input {
+    flex: 1;
+    width: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: right;
+    outline: none; /* 포커스 테두리 제거 */
+}
+
+.input-wrapper .unit {
+    position: static; /* absolute에서 static으로 변경 */
+    padding: 0 15px 0 5px;
+    color: #495057;
+    transform: none;
+}
+.quick-button {
+    flex: 1;
+    padding: 8px;
+    background: #e9ecef;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.quick-button:hover {
+    background: #dee2e6;
+}
+
+.calculate-button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.calculate-button:hover {
+    background: #0056b3;
+}
+
+.result-container {
+    margin-top: 20px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.result-item.deduction {
+    color: #dc3545;
+}
+
+.result-item.actual-income {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #28a745;
+    border-bottom: none;
+}
+
+.error {
+    color: #dc3545;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* quick-buttons 관련 스타일만 다시 원래대로 수정 */
+.quick-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.quick-button {
+    flex: 1;
+    padding: 8px;
+    background: #e9ecef;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.quick-button:hover {
+    background: #dee2e6;
+}
+</style>
+</head>
+
+<body class="wp-singular page-template-default page page-id-326 wp-embed-responsive wp-theme-generatepress post-image-aligned-center sticky-menu-no-transition sticky-enabled both-sticky-menu no-sidebar nav-below-header separate-containers nav-search-enabled header-aligned-left dropdown-hover">
+ <div class="site grid-container container hfeed" id="page">
+  <div class="site-content" id="content">
+    <div class="content-area" id="primary">
+      <main class="site-main" id="main">
+         <article id="post-326" class="post-326 page type-page status-publish">
+	<div class="inside-article">
+                 <header class="entry-header" aria-label="Content">
+                    <h1 class="entry-title" itemprop="headline">프리랜서 실수령액</h1>			
+                </header>
+                <div class="entry-content" itemprop="text">
+			
+<!-- 계산기 컨테이너 -->
+<div class="freelance-calculator">   
+    <div class="input-group">
+        <label for="monthly-income">월 계약금액</label>
+        <div class="input-wrapper">
+            <input type="text" id="monthly-income" placeholder="0" style="text-align: right;">
+            <span class="unit">만원</span>
+        </div>
+        <button onclick="calculateIncome()" class="calculate-button">계산하기</button>
+    </div>
+
+    <div id="result" class="result-container" style="display: none;">
+        <div class="result-item">
+            <span>계약금액</span>
+            <span id="total-income"></span>
+        </div>
+        <div class="result-item deduction">
+            <span>소득세 (3.3%)</span>
+            <span id="income-tax"></span>
+        </div>
+        <div class="result-item deduction">
+            <span>고용보험료</span>
+            <span id="employment-insurance"></span>
+        </div>
+        <div class="result-item deduction">
+            <span>산재보험료</span>
+            <span id="workers-compensation"></span>
+        </div>
+        <div class="result-item total-deduction">
+            <span>총 공제액</span>
+            <span id="total-deduction"></span>
+        </div>
+        <div class="result-item actual-income">
+            <span>실수령액</span>
+            <span id="actual-income"></span>
+        </div>
+    </div>    
+    <div id="error-message" class="error" style="display: none;"></div>
+</div>
+<ul class="wp-block-list">
+  <li class="has-contrast-3-color has-text-color has-link-color has-small-font-size">소프트웨어 기술자 대상의 실수령액입니다. (기획자, UI/UX 디자이너, 퍼블리셔, 개발자 등)</li>
+  <li class="has-contrast-3-color has-text-color has-link-color has-small-font-size">산재보험과 고용보험은 2022년 7월부터 의무 가입대상입니다. 사업주와 프리랜서가 각각 50%씩 부담합니다. </li>
+</ul>
+
+                </div>
+	</div>
+         </article>
+      </main>
+    </div>
+ </div>
+</div>
+
+<script>
+function formatNumber(number) {
+    return Math.floor(number).toLocaleString('ko-KR');
+}
+
+function validateInput(input) {
+    if (!input || input.trim() === '') {
+        throw new Error('급여를 입력해주세요.');
+    }
+
+    const number = Number(input.replace(/,/g, ''));
+    
+    if (isNaN(number)) {
+        throw new Error('숫자만 입력 가능합니다.');
+    }
+    
+    if (number < 0) {
+        throw new Error('급여는 0만원 이상이어야 합니다.');
+    }
+    
+    if (number > 10000) {
+        throw new Error('1억원(10000만원) 이하의 금액만 입력 가능합니다.');
+    }
+
+    return number * 10000; // 만원 단위를 원 단위로 변환
+}
+
+function addAmount(amount) {
+    const input = document.getElementById('monthly-income');
+    const currentValue = Number(input.value.replace(/,/g, '')) || 0;
+    const newValue = currentValue + amount;
+    
+    if (newValue > 10000) {
+        document.getElementById('error-message').textContent = '1억원(10000만원)을 초과할 수 없습니다.';
+        document.getElementById('error-message').style.display = 'block';
+        return;
+    }
+    
+    input.value = newValue.toLocaleString('ko-KR');
+    document.getElementById('error-message').style.display = 'none';
+}
+
+function calculateIncome() {
+    const input = document.getElementById('monthly-income').value;
+    const resultDiv = document.getElementById('result');
+    const errorDiv = document.getElementById('error-message');
+    
+    try {
+        const monthlyIncome = validateInput(input);
+
+        // 필요경비 계산 (월급여의 15.7%)
+        const necessaryExpense = monthlyIncome * 0.157;
+        
+        // 월 보수액 계산 (월급여 - 필요경비)
+        const monthlyAllowance = monthlyIncome - necessaryExpense;
+
+        // 1. 소득세 계산 (3.3%, 원단위 절삭)
+        const incomeTax = Math.floor(monthlyIncome * 0.033);
+        
+        // 2. 고용보험료 계산 (원단위 절삭)
+        let employmentInsurance = 0;
+        if (monthlyIncome >= 800000) {
+            employmentInsurance = Math.floor((monthlyAllowance * 0.016) / 2);
+        }
+        
+        // 3. 산재보험료 계산 (0.56%, 원단위 절삭)
+        const workersCompensation = Math.floor((monthlyAllowance * 0.0056) / 2 / 10) * 10;
+        
+        // 4. 총 공제액과 실수령액 계산
+        const totalDeduction = incomeTax + employmentInsurance + workersCompensation;
+        const actualIncome = Math.floor(monthlyIncome - totalDeduction);
+        
+        // 결과 표시
+        document.getElementById('total-income').textContent = formatNumber(monthlyIncome) + '원';
+        document.getElementById('income-tax').textContent = formatNumber(incomeTax) + '원';
+        document.getElementById('employment-insurance').textContent = formatNumber(employmentInsurance) + '원';
+        document.getElementById('workers-compensation').textContent = formatNumber(workersCompensation) + '원';
+        document.getElementById('total-deduction').textContent = formatNumber(totalDeduction) + '원';
+        document.getElementById('actual-income').textContent = formatNumber(actualIncome) + '원';
+        
+        resultDiv.style.display = 'block';
+        errorDiv.style.display = 'none';
+    } catch (error) {
+        errorDiv.textContent = error.message;
+        errorDiv.style.display = 'block';
+        resultDiv.style.display = 'none';
+    }
+}
+
+// 입력 필드에서 숫자 입력 시 자동으로 천단위 콤마 추가
+document.getElementById('monthly-income').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/[^\d]/g, '');
+    if (value) {
+        e.target.value = Number(value).toLocaleString('ko-KR');
+    }
+});
+</script>
+
+</body>
+</html>
