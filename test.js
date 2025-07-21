@@ -1,8 +1,8 @@
-import { test1 } from './test1.js';
+import { name } from './test1.js';
 
 window.myTest = {
-  hello: function(name) {
-    console.log(test1);
-    return 'Hello,' + name;
+  hello: function(a) {
+    console.log(name);
+    return 'Hello,' + a;
   }
 }
