@@ -1,3 +1,5 @@
-export function add(a, b){
-  return a+ b;
+window.myTest = {
+  hello: function(name) {
+    return 'Hello,' + name;
+  }
 }
