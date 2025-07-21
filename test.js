@@ -1,4 +1,4 @@
-import { test1 } from './test.js';
+import { test1 } from './test1.js';
 
 window.myTest = {
   hello: function(name) {
