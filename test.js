@@ -1,7 +1,8 @@
 import { test1 } from './test.js';
 
 window.myTest = {
-  hello: function() {
-    return 'Hello,' + test1;
+  hello: function(name) {
+    console.log(test1);
+    return 'Hello,' + name;
   }
 }
