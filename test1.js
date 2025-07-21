@@ -1,3 +1,3 @@
-function test1(name){
-  return name;
+function name(){
+  return '지영';
 }
