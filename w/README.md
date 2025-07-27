@@ -6,3 +6,5 @@ https://software-setup.store/<br/><br/>
 시리얼 : 301NZYB019514<br/>
 win11 제품키: OA3xOriginalProductKey<br/>
 Q8RFN-PCRQ8-M4FTV-FWMTC-Q3W48<br/>
+주문 번호: 6190277890<br/>
+구입 날짜: 2024년 8월 18일 일요일<br/>
