@@ -29,4 +29,11 @@ alt+shift+o : java 매서드 자동 import<br/><br/>
 
 openJDK 다운로드<br/>
 -. https://www.azul.com/downloads/#downloads-table-zulu<br/>
--. 해당버전(Zulu-jdk 17) 선택후 .msi 다운로드<br/>
+-. 해당버전(Zulu-jdk 17) 선택후 .msi 다운로드<br/><br/>
+
+-----------------------------------------------<br/>
+N-ERP Sales Portal 구축사업<br/>
+-. knox: https://samsnug.net - 가입완료(jiyoung9.lee / young13572@)<br/>
+-. 프로젝트: https://projectview.sdsdev.co.kr - 가입완료<br/>
+-. 컴플런스: https://confluence.sec.samsung.net/display/NSP<br/>
+-. it4u: http://it4u.sec.samsung.net<br/>
