@@ -36,4 +36,5 @@ N-ERP Sales Portal 구축사업<br/>
 -. knox: https://samsnug.net - 가입완료(jiyoung9.lee / young13572@)<br/>
 -. 프로젝트: https://projectview.sdsdev.co.kr - 가입완료<br/>
 -. 컴플런스: https://confluence.sec.samsung.net/display/NSP<br/>
--. it4u: http://it4u.sec.samsung.net<br/>
+-. it4u: http://it4u.sec.samsung.net : AD(VDI) - plmkoi2@<br/>
+-. 스마트투게더 : https://www.smart-together.com/ : jignuoy / 19790124 / ljgnuoy@gmail.com / plmkoi2@<br/>
