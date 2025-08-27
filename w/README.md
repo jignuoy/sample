@@ -39,7 +39,7 @@ N-ERP Sales Portal 구축사업<br/>
 -. it4u: http://it4u.sec.samsung.net : AD(VDI) - plmkoi2@<br/>
 -. 스마트투게더 : https://www.smart-together.com/ : jignuoy / 19790124 / ljgnuoy@gmail.com / plmkoi2@<br/>
 -. 기본설치 프로그램
-   - 원도우(win10 정품, 최신업데이트)
+   - 원도우(Windows 10 Pro 정품, 최신업데이트)
    - 오피스(Microsoft Office Professional Plus 2019)
    - 백신(V3)
    - 압축(Bandizip)
