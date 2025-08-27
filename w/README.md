@@ -38,3 +38,16 @@ N-ERP Sales Portal 구축사업<br/>
 -. 컴플런스: https://confluence.sec.samsung.net/display/NSP<br/>
 -. it4u: http://it4u.sec.samsung.net : AD(VDI) - plmkoi2@<br/>
 -. 스마트투게더 : https://www.smart-together.com/ : jignuoy / 19790124 / ljgnuoy@gmail.com / plmkoi2@<br/>
+-. 기본설치 프로그램
+   - 원도우(win10 정품, 최신업데이트)
+   - 오피스(Microsoft Office Professional Plus 2019)
+   - 백신(V3)
+   - 압축(Bandizip)
+   - DB툴(DBeaver 24.2.3)
+   - forntend(VSCode, Node.js)
+   - git
+   - Knox
+     - Knox portal desktop attachment
+     - Knox Teams
+     - VDIManager(원격)
+     - ppt뷰어(알PDF)
