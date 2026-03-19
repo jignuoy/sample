@@ -7,9 +7,9 @@
 # 1. 전체 구조 개요
 
 ```text
-SSR (basicInfo)
+SSR 
   ↓
-store.basicInfo 저장
+store.ssrInfo 저장(공통)
   ↓
 UI 초기 렌더링 (SSR 데이터 사용)
 
@@ -34,7 +34,7 @@ UI 자동 갱신 (computed fallback)
 
 | 영역                     | 역할                       |
 | ---------------------- | ------------------------ |
-| basicInfo              | SSR 데이터                  |
+| ssrInfo                | SSR 데이터                  |
 | detailInfo             | CSR 상세 데이터               |
 | selectedDateAndPersons | 사용자 선택 상태                |
 | useBasicInfo           | SSR/CSR fallback + UI 가공 |
@@ -46,7 +46,7 @@ UI 자동 갱신 (computed fallback)
 ## 2.2 데이터 흐름
 
 ```text
-SSR → basicInfo
+SSR → ssrInfo
 CSR → detailInfo
 ↓
 useBasicInfo (fallback)
