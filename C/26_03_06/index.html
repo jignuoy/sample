@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="롯데온 여행페이지" />
+    <title>롯데온 여행</title>
+    <meta name="description" content="<%= VITE_APP_META_DESCRIPTION %>">
+    <meta property="og:type" content="<%= VITE_APP_META_TYPE %>">
+    <meta property="og:site_name" content="<%= VITE_APP_META_SITE_NAME %>">
+    <meta property="og:description" content="<%= VITE_APP_META_DESCRIPTION %>">
+
+     <!-- generics -->
+    <link rel="icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-32.png|" sizes="32x32">
+    <link rel="icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-57.png|" sizes="57x57">
+    <link rel="icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-76.png|" sizes="76x76">
+    <link rel="icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-96.png|" sizes="96x96">
+    <link rel="icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-128.png|" sizes="128x128">
+    <link rel="icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-192.png|" sizes="192x192">
+    <link rel="icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-228.png|" sizes="228x228">
+      
+    <!-- Android -->
+    <link rel="shortcut icon" sizes="196x196" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-196.png|">
+      
+    <!-- iOS -->
+    <link rel="apple-touch-icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-120.png|" sizes="120x120">
+    <link rel="apple-touch-icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-152.png|" sizes="152x152">
+    <link rel="apple-touch-icon" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-180.png|" sizes="180x180">
+      
+    <!-- Windows 8 IE 10-->
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" th:attr="href=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/favicon-144.png|">
+      
+    <!-- Windows 8.1 + IE11 and above -->
+    <meta name="msapplication-config" th:attr="content=|<%=VITE_APP_COMMON_STATIC_URL%>/p/common/assets/favicon/1/browserconfig.xml|" />
+
+    <% if (VITE_ENV === 'dev') { %>
+    <link rel="stylesheet" href="<%= VITE_APP_COMMON_STATIC_URL %>/p/common/foCommon/foCommon.v1.0.css?202007081700" />
+    <% } else { %>
+        <link rel="stylesheet" href="<%= VITE_APP_COMMON_STATIC_URL %>/p/common/foCommon/foCommon.v1.0.css?202007081700" />
+    <% } %>
+  </head>
+  <body>
+    <div
+      id="app"
+      th:data-travel-type="${travelType}"
+      th:data-product-type="${productType}"
+      th:data-ssr-info="${metaData}"
+    ></div>
+    <% if (VITE_ENV === 'dev') { %>
+    <script type="module" src="<%= VITE_APP_STATIC_URL %>/src/app/main.js"></script>
+    <script type="module" src="<%= VITE_APP_STATIC_URL %>/@vite/client"></script>
+    <% } else { %>
+    <script type="module" src="/src/app/main.js"></script>
+    <% } %>
+  </body>
+</html>
